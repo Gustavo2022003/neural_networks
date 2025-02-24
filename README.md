@@ -1,3 +1,5 @@
+<img style="width:100%" src="assets/images/banner.png">
+
 # Neural Networks
 
 *This repo is dedicated to learn and share knowledge about neural networks.*
