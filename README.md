@@ -34,4 +34,4 @@ You can contribute to this project in several ways, including:
 
 This repository is focused on neural networks. Please avoid submitting content unrelated to this subject.
 
-To learn more about the contribution and avoid conflicts, please read the [guidelines](./github/CONTRIBUTING.md)
+To learn more about the contribution and avoid conflicts, please read the [guidelines](.github/CONTRIBUTING.md)
