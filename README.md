@@ -11,6 +11,7 @@ Author: Gustavo Gutierrez
 ## Summary
 - [Articles](#articles)
 - [Contributions](#contributions)
+- [Reporting issues](#reporting-issues)
 
 
 
@@ -35,3 +36,12 @@ You can contribute to this project in several ways, including:
 This repository is focused on neural networks. Please avoid submitting content unrelated to this subject.
 
 To learn more about the contribution and avoid conflicts, please read the [guidelines](.github/CONTRIBUTING.md)
+
+## Reporting Issues
+If you find a bug, have a suggestion, or encounter any problems, please follow these steps:
+1. Go to the **Issues** tab in the repository.
+2. Click **New Issue**.
+3. Provide a clear title and detailed description of the issue.
+4. Include steps to reproduce the issue, if applicable.
+5. Add relevant labels to help categorize the issue.
+6. Submit the issue for review.
