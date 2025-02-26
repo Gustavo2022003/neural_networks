@@ -25,7 +25,7 @@ You can download and/or read an article on neural networks written by Gustavo Gu
 
 | Title                            | Extension | Size   | Language | Last update |
 |----------------------------------|-----------|--------| -------- | ------------|
-| [Redes Neurais Artificiais - PTBR](https://github.com/Gustavo2022003/neural_networks/blob/master/Docs/Articles/pt-br/Redes%20Neurais%20Artificiais%20-%20ptBR.pdf) | pdf       | 2.64 MB | Portguese 🇧🇷 | 02/26/2025 |
+| [Redes Neurais Artificiais - PTBR](https://github.com/Gustavo2022003/neural_networks/blob/master/docs/Articles/pt-br/Redes%20Neurais%20Artificiais%20-%20ptBR.pdf) | pdf       | 2.64 MB | Portguese 🇧🇷 | 02/26/2025 |
 
 # Contributions
 You can contribute to this project in several ways, including:
