@@ -65,7 +65,3 @@ You can contribute to this project in several ways, including:
 The project maintainers will review your PR and may request adjustments. Stay tuned to the GitHub notifications and answer the suggestions.
 
 We appreciate your contribution! 🚀
-
-Os mantenedores do projeto revisarão seu PR e poderão solicitar ajustes. Fique atento às notificações no GitHub e responda às sugestões.
-
-Agradecemos sua contribuição! 🚀
