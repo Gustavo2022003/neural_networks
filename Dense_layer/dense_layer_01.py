@@ -1,5 +1,5 @@
 """
-Dense layers and direct propagation
+Dense layer and direct propagation
 """
 
 import numpy as np
@@ -21,11 +21,11 @@ class Layer_Dense:
 		self.output = np.dot(inputs, self.weight) + self.biases
 
 # Setting up the network structure
-Layer1 = Layer_Dense(4, 5) # 4 inputs for 5 neurons
-Layer2 = Layer_Dense(5, 2) # 5 inputs for 2 neurons
+Layer1 = Layer_Dense(4, 5) # 4 inputs to 5 neurons
+Layer2 = Layer_Dense(5, 2) # 5 inputs to 2 neurons
 
 
-Layer1.forward(X) # Initialize the layer 1 with the input data X
-Layer2.forward(Layer1.output) # Initialize the layer 2 with the output data from layer 1
+Layer1.forward(X) # Initialize layer 1 with the input data X
+Layer2.forward(Layer1.output) # Initialize layer 2 with the output data from layer 1
 
-print(Layer2.output) # Print the output values from the layer 2
+print(Layer2.output) # Print the output from layer 2
