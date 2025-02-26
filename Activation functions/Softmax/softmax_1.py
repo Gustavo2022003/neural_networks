@@ -32,10 +32,35 @@ class Activation_ReLU:
 class Activation_softmax:
 	def forward(self, inputs):
 		exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
-		nom_values = exp_values / np.sum(exp_values, axis=1, keepdims=True)# Normalize the exponential output
+		probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)# Normalize the exponential output
+		self.output = probabilities
 
-# Setting up the network structure
-Layer1 = Layer_Dense(2, 5) # Initialize layer 1 with 2 inputs to 5 neurons
+# Creating the data in spiral with 100 samples for the 3 classes (33 samples for each)
+X, y = spiral_data(samples=100, classes=3)
+
+"""Setting up the layers"""
+
+# Creating the first dense layer with 2 inputs and 3 neurons
+dense1 = Layer_Dense(2, 3)
+# Initializing the ReLU activation function
 activation1 = Activation_ReLU()
-Layer1.forward(X) # Using input data X to get output
-activation1.forward(Layer1.output) # Using the activation function
+
+# Creating the second dense layer with 3 inputs and 3 neurons
+dense2 = Layer_Dense(3, 3)
+# Initializing the softmax activation function
+activation2 = Activation_softmax()
+
+"""Giving the inputs"""
+
+# Giving the first dense layer data from the spiral_data
+dense1.forward(X)
+# Activating the ReLU with the first layer output
+activation1.forward(dense1.output)
+
+# Getting the ReLU output and using it as the input of dense layer 2
+dense2.forward(activation1.output)
+# Activating the softmax function with the dense layer 2 output
+activation2.forward(dense2.output)
+
+# Printing the first 5 samples from the output batch
+print(activation2.output[:5])
