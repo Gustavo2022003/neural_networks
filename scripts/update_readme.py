@@ -3,10 +3,10 @@ import re
 from datetime import datetime
 
 # Path of the file that will be monitored
-file_path = "docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
+file_path = "../docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
 
 # README path
-readme_path = "README.md"
+readme_path = "../README.md"
 
 def get_file_size(file_path):
     """Returns the file size in MB"""
@@ -27,14 +27,14 @@ def update_readme(file_size, last_update):
     # Update the file size on the table
     content = re.sub(
         r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|\s*)([\d\.]+)(\s*MB\s*\|)",
-        rf"\1{file_size}\3",
+        r"\1" + str(file_size) + r"\3",
         content
     )
 
     # Updates the last update date on the table
     content = re.sub(
         r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|.*?\|\s*Portguese 🇧🇷\s*\|\s*)(\d{2}/\d{2}/\d{2})(\s*\|)",
-        rf"\1{last_update}\3",
+        r"\1" + last_update + r"\3",
         content
     )
 
