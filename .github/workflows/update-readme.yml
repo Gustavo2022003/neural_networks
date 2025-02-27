@@ -34,7 +34,9 @@ jobs:
           git config --global user.email "github-actions@github.com"
 
       - name: Changes commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git add README.md
           git commit -m ":memo: docs: Auto README update - $(date +'%m/%d/%Y')"
-          git push
+          git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --token $GH_TOKEN
