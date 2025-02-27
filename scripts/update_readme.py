@@ -27,14 +27,14 @@ def update_readme(file_size, last_update):
     # Update the file size on the table
     content = re.sub(
         r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|\s*)([\d\.]+)(\s*MB\s*\|)",
-        r"\1" + str(file_size) + r"\3",
+        lambda m: f"{m.group(1)}{file_size}{m.group(3)}",
         content
     )
 
     # Updates the last update date on the table
     content = re.sub(
         r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|.*?\|\s*Portguese 🇧🇷\s*\|\s*)(\d{2}/\d{2}/\d{2})(\s*\|)",
-        r"\1" + last_update + r"\3",
+        lambda m: f"{m.group(1)}{last_update}{m.group(3)}",
         content
     )
 
