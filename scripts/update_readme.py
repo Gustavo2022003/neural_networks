@@ -3,7 +3,8 @@ import os
 import datetime
 
 def update_readme(file_size, last_update):
-    with open("README_template.md", "r", encoding="utf-8") as file:
+    readme_path = "./README.md"
+    with open(readme_path, "r", encoding="utf-8") as file:
         template_content = file.read()
 
     template = Template(template_content)
