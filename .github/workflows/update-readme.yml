@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - "docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
+      - "./docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
   workflow_dispatch:
 
 jobs:
@@ -36,5 +36,5 @@ jobs:
       - name: Changes commit and push
         run: |
           git add README.md
-          git commit -m ":memo:docs: Auto README update - $(date +'%m/%d/%Y')"
+          git commit -m ":memo: docs: Auto README update - $(date +'%m/%d/%Y')"
           git push
