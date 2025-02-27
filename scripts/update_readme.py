@@ -1,48 +1,31 @@
+from jinja2 import Template
 import os
-import re
-from datetime import datetime
-
-# Path of the file that will be monitored
-file_path = "docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
-
-# README path
-readme_path = "README.md"
-
-def get_file_size(file_path):
-    """Returns the file size in MB"""
-    if os.path.exists(file_path):
-        size = os.path.getsize(file_path) / (1024 * 1024)
-        return round(size, 2)
-    return 0
-
-def get_current_date():
-    """Returna the current date"""
-    return datetime.now().strftime("%m/%d/%y")
+import datetime
 
 def update_readme(file_size, last_update):
-    """Update the file size and the last update on the README's table"""
-    with open(readme_path, "r", encoding="utf-8") as file:
-        content = file.read()
+    with open("README_template.md", "r", encoding="utf-8") as file:
+        template_content = file.read()
 
-    # Update the file size on the table
-    content = re.sub(
-        r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|\s*)([\d\.]+)(\s*MB\s*\|)",
-        lambda m: f"{m.group(1)}{file_size}{m.group(3)}",
-        content
+    template = Template(template_content)
+
+    content = template.render(
+        file_size=file_size,
+        last_update=last_update
     )
 
-    # Updates the last update date on the table
-    content = re.sub(
-        r"(\|\s*\[Redes Neurais Artificiais - PTBR.*?\|\s*pdf\s*\|.*?\|\s*Portguese 🇧🇷\s*\|\s*)(\d{2}/\d{2}/\d{2})(\s*\|)",
-        lambda m: f"{m.group(1)}{last_update}{m.group(3)}",
-        content
-    )
-
-    # Save the new content on the README
-    with open(readme_path, "w", encoding="utf-8") as file:
+    with open("README.md", "w", encoding="utf-8") as file:
         file.write(content)
 
-if __name__ == "__main__":
-    tamanho = get_file_size(file_path)
-    data_atual = get_current_date()
-    update_readme(tamanho, data_atual)
+def get_file_info():
+    file_path = "docs/Articles/pt-br/Redes Neurais Artificiais - PTBR.pdf"
+    
+    file_size = os.path.getsize(file_path) / (1024 * 1024)
+    file_size = round(file_size, 2)
+    
+    last_modified_time = os.path.getmtime(file_path)
+    last_update = datetime.datetime.fromtimestamp(last_modified_time).strftime('%m/%d/%y')
+    
+    return file_size, last_update
+
+file_size, last_update = get_file_info()
+update_readme(file_size, last_update)
