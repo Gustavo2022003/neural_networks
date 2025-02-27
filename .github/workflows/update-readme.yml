@@ -33,10 +33,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
 
-      - name: Changes commit and push
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m ":memo: docs: Auto README update - $(date +'%m/%d/%Y')"
+
+      - name: Push changes
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git add README.md
-          git commit -m ":memo: docs: Auto README update - $(date +'%m/%d/%Y')"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:master
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push origin master
