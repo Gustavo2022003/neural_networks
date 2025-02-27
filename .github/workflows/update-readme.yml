@@ -39,4 +39,4 @@ jobs:
         run: |
           git add README.md
           git commit -m ":memo: docs: Auto README update - $(date +'%m/%d/%Y')"
-          git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --token $GH_TOKEN
+          git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
