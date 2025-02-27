@@ -3,10 +3,10 @@ import re
 from datetime import datetime
 
 # Path of the file that will be monitored
-file_path = "../docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
+file_path = "docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
 
 # README path
-readme_path = "../README.md"
+readme_path = "README.md"
 
 def get_file_size(file_path):
     """Returns the file size in MB"""
