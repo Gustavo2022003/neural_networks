@@ -42,6 +42,8 @@ if __name__ == "__main__":
     pattern_to_find = "X.XX MB"
     replacement_value = str(get_file_size(path_to_pdf))
 
+    print(find_and_replace_pattern_in_md(path_to_readme, pattern_to_find, replacement_value))
+
     pattern_to_find = "MM/DD/YYYY"
     replacement_value = current_date.strftime("%m/%d/%Y")
 
