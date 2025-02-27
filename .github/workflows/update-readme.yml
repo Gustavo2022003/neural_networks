@@ -1,0 +1,36 @@
+name: Update README with the "Redes Neurais Artificiais - ptBR.pdf" file size
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "docs/Articles/pt-br/Redes Neurais Artificiais - ptBR.pdf"
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Executar script de atualização do README
+        run: python scripts/update_readme.py
+
+      - name: Configurar usuário do GitHub Actions
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Commit e push das mudanças
+        run: |
+          git add README.md
+          git commit -m ":memo:docs: Auto README update - $(date +'%m/%d/%Y')"
+          git push
